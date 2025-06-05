@@ -1,0 +1,182 @@
+name: linuxserver-kali-linux
+services:
+  app:
+    cpu_shares: 90
+    command: []
+    deploy:
+      resources:
+        limits:
+          memory: 15387M
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - SUBFOLDER=
+      - TITLE=
+      - TZ=Europe/Madrid
+    image: linuxserver/kali-linux:version-f15aba91
+    labels:
+      icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+    ports:
+      - target: 3000
+        published: "3033"
+        protocol: tcp
+      - target: 3001
+        published: "3031"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/kali-linux/config
+        target: /config
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: Run 'id [USER]' for the owner of the host volume directories to get the
+              UID to use here.
+        - container: PGID
+          description:
+            en_us: Run 'id [USER]' for the owner of the host volume directories to get the
+              GID to use here.
+        - container: TZ
+          description:
+            en_us: specify a timezone to use, see this list.
+        - container: SUBFOLDER
+          description:
+            en_us: Specify a subfolder to use with reverse proxies, IE /subfolder/
+              [OPTIONAL]
+        - container: TITLE
+          description:
+            en_us: String which will be used as page/tab title in the web browser.
+              [OPTIONAL]
+    devices: []
+    cap_add: []
+    networks:
+      - default
+    privileged: false
+    container_name: ""
+    hostname: ""
+networks:
+  default:
+    name: linuxserver-kali-linux_default
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: WisdomSky
+  category: LinuxServer.io
+  description:
+    en_us: Kali-linux - is an Advanced Penetration Testing Linux distribution used
+      for Penetration Testing, Ethical Hacking and network security assessments.
+      KALI LINUX ™ is a trademark of OffSec.
+  developer: LinuxServer.io
+  hostname: ""
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+  index: /
+  is_uncontrolled: false
+  main: app
+  port_map: "3033"
+  scheme: http
+  store_app_id: linuxserver-kali-linux
+  tagline:
+    en_us: is an Advanced Penetration Testing Linux distribution used for
+      Penetration Testing, Ethical Hacking and network security assessments.
+      KALI LINUX ™ is a trademark of OffSec.
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+  title:
+    custom: ""
+    en_us: Kali linux
+name: linuxserver-kali-linux
+services:
+  app:
+    cpu_shares: 90
+    command: []
+    deploy:
+      resources:
+        limits:
+          memory: 15387M
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - SUBFOLDER=
+      - TITLE=
+      - TZ=Europe/Madrid
+    image: linuxserver/kali-linux:version-f15aba91
+    labels:
+      icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+    ports:
+      - target: 3000
+        published: "3033"
+        protocol: tcp
+      - target: 3001
+        published: "3031"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/kali-linux/config
+        target: /config
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: Run 'id [USER]' for the owner of the host volume directories to get the
+              UID to use here.
+        - container: PGID
+          description:
+            en_us: Run 'id [USER]' for the owner of the host volume directories to get the
+              GID to use here.
+        - container: TZ
+          description:
+            en_us: specify a timezone to use, see this list.
+        - container: SUBFOLDER
+          description:
+            en_us: Specify a subfolder to use with reverse proxies, IE /subfolder/
+              [OPTIONAL]
+        - container: TITLE
+          description:
+            en_us: String which will be used as page/tab title in the web browser.
+              [OPTIONAL]
+    devices: []
+    cap_add: []
+    networks:
+      - default
+    privileged: false
+    container_name: ""
+    hostname: ""
+networks:
+  default:
+    name: linuxserver-kali-linux_default
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: WisdomSky
+  category: LinuxServer.io
+  description:
+    en_us: Kali-linux - is an Advanced Penetration Testing Linux distribution used
+      for Penetration Testing, Ethical Hacking and network security assessments.
+      KALI LINUX ™ is a trademark of OffSec.
+  developer: LinuxServer.io
+  hostname: ""
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+  index: /
+  is_uncontrolled: false
+  main: app
+  port_map: "3033"
+  scheme: http
+  store_app_id: linuxserver-kali-linux
+  tagline:
+    en_us: is an Advanced Penetration Testing Linux distribution used for
+      Penetration Testing, Ethical Hacking and network security assessments.
+      KALI LINUX ™ is a trademark of OffSec.
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+  title:
+    custom: ""
+    en_us: Kali linux
