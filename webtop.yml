@@ -1,0 +1,91 @@
+name: linuxserver-webtop
+services:
+  app:
+    cpu_shares: 90
+    command: []
+    deploy:
+      resources:
+        limits:
+          memory: 15387M
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - SUBFOLDER=
+      - TITLE=
+      - TZ=Europe/Madrid
+    image: linuxserver/webtop:arch-kde-version-2025-05-30
+    labels:
+      icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png
+    ports:
+      - target: 3000
+        published: "3036"
+        protocol: tcp
+      - target: 3001
+        published: "3037"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/webtop/config
+        target: /config
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    x-casaos:
+      envs:
+        - container: PUID
+          description:
+            en_us: Run 'id [USER]' for the owner of the host volume directories to get the
+              UID to use here.
+        - container: PGID
+          description:
+            en_us: Run 'id [USER]' for the owner of the host volume directories to get the
+              GID to use here.
+        - container: TZ
+          description:
+            en_us: specify a timezone to use, see this list.
+        - container: SUBFOLDER
+          description:
+            en_us: Specify a subfolder to use with reverse proxies, IE /subfolder/
+              [OPTIONAL]
+        - container: TITLE
+          description:
+            en_us: String which will be used as page/tab title in the web browser.
+              [OPTIONAL]
+    devices: []
+    cap_add: []
+    networks:
+      - default
+    privileged: false
+    container_name: ""
+    hostname: ""
+networks:
+  default:
+    name: linuxserver-webtop_default
+x-casaos:
+  architectures:
+    - amd64
+    - arm64
+  author: WisdomSky
+  category: LinuxServer.io
+  description:
+    en_us: Webtop - Alpine, Ubuntu, Fedora, and Arch based containers containing
+      full desktop environments in officially supported flavors accessible via
+      any modern web browser.
+  developer: LinuxServer.io
+  hostname: ""
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png
+  index: /
+  is_uncontrolled: false
+  main: app
+  port_map: "3036"
+  scheme: http
+  store_app_id: linuxserver-webtop
+  tagline:
+    en_us: Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop
+      environments in officially supported flavors accessible via any modern web
+      browser.
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png
+  title:
+    custom: ""
+    en_us: Webtop
